@@ -322,6 +322,21 @@ document.getElementById('weekInput')?.addEventListener('keypress', (e) => {
   }
 });
 
+// 탭 전환 함수
+function switchTab(tabName) {
+  // 모든 탭 버튼과 콘텐츠에서 active 클래스 제거
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+
+  // 선택된 탭 활성화
+  event.target.classList.add('active');
+  document.getElementById(tabName + 'Tab').classList.add('active');
+}
+
 // 페이지 로드 시 실행
 console.log('[Admin] 관리자 페이지 로드됨');
 loadMembers();

@@ -162,9 +162,9 @@ app.get('/api/votes/:id', async (req, res) => {
 app.post('/api/votes/:id/cast', async (req, res) => {
   try {
     const { id } = req.params;
-    const { voterName, selectedMembers } = req.body;
+    const { selectedMembers } = req.body;
 
-    if (!voterName || !selectedMembers || !Array.isArray(selectedMembers)) {
+    if (!selectedMembers || !Array.isArray(selectedMembers)) {
       return res.status(400).json({ error: '잘못된 요청입니다.' });
     }
 
@@ -185,17 +185,7 @@ app.post('/api/votes/:id/cast', async (req, res) => {
       return res.status(400).json({ error: '종료된 투표입니다.' });
     }
 
-    // 본인 투표 체크
-    if (selectedMembers.includes(voterName)) {
-      return res.status(400).json({ error: '본인은 선택할 수 없습니다.' });
-    }
-
-    // 중복 투표 체크
-    if (vote.voters.some(v => v.name === voterName)) {
-      return res.status(400).json({ error: '이미 투표하셨습니다.' });
-    }
-
-    // 투표 처리
+    // 투표 처리 (무기명)
     selectedMembers.forEach(memberName => {
       const member = vote.members.find(m => m.name === memberName);
       if (member) {
@@ -203,8 +193,8 @@ app.post('/api/votes/:id/cast', async (req, res) => {
       }
     });
 
+    // 익명 투표 기록 (통계 목적)
     vote.voters.push({
-      name: voterName,
       selectedMembers,
       votedAt: new Date().toISOString()
     });

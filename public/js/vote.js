@@ -7,12 +7,28 @@ function getVoteId() {
   return params.get('id');
 }
 
+// 이미 투표했는지 확인 (localStorage 기반)
+function hasVoted(voteId) {
+  return localStorage.getItem(`voted_${voteId}`) === 'true';
+}
+
+// 투표 완료 기록
+function markAsVoted(voteId) {
+  localStorage.setItem(`voted_${voteId}`, 'true');
+}
+
 // 투표 정보 로드
 async function loadVote() {
   const voteId = getVoteId();
 
   if (!voteId) {
     showError('잘못된 접근입니다.');
+    return;
+  }
+
+  // 이미 투표했는지 확인
+  if (hasVoted(voteId)) {
+    showError('이미 투표하셨습니다.');
     return;
   }
 
@@ -78,19 +94,7 @@ function toggleMember(memberName) {
 
 // 투표 제출
 async function submitVote() {
-  const voterName = document.getElementById('voterName').value.trim();
-
   // 유효성 검사
-  if (!voterName) {
-    alert('이름을 입력해주세요.');
-    return;
-  }
-
-  if (!voterName.includes('/')) {
-    alert('팀이름/닉네임 형식으로 입력해주세요.');
-    return;
-  }
-
   if (selectedMembers.length === 0) {
     alert('최소 1명을 선택해주세요.');
     return;
@@ -101,19 +105,12 @@ async function submitVote() {
     return;
   }
 
-  // 본인 투표 확인
-  if (selectedMembers.includes(voterName)) {
-    alert('본인은 선택할 수 없습니다.');
-    return;
-  }
-
   // 투표 제출
   try {
     const response = await fetch(`/api/votes/${voteData.id}/cast`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        voterName,
         selectedMembers
       })
     });
@@ -121,6 +118,8 @@ async function submitVote() {
     const result = await response.json();
 
     if (response.ok) {
+      // 투표 완료 기록 (localStorage)
+      markAsVoted(voteData.id);
       showComplete();
     } else {
       alert(result.error || '투표에 실패했습니다.');

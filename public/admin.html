@@ -16,57 +16,66 @@
       </nav>
     </header>
 
-    <!-- 멤버 관리 섹션 -->
-    <section class="card">
-      <h2>👥 멤버 관리</h2>
-      <div class="form-group">
-        <input
-          type="text"
-          id="memberInput"
-          placeholder="팀이름/닉네임 (예: 마케팅팀/김철수)"
-          class="input-field"
-        >
-        <button onclick="addMember()" class="btn btn-primary">멤버 추가</button>
-      </div>
-      <div id="membersList" class="members-list"></div>
-    </section>
-
-    <!-- 투표 생성 섹션 -->
-    <section class="card">
-      <h2>🗳️ 새 투표 만들기</h2>
-      <div class="form-group">
-        <div class="input-row">
-          <input
-            type="number"
-            id="monthInput"
-            placeholder="월"
-            min="1"
-            max="12"
-            class="input-field input-small"
-          >
-          <span>월</span>
-          <input
-            type="number"
-            id="weekInput"
-            placeholder="주차"
-            min="1"
-            max="5"
-            class="input-field input-small"
-          >
-          <span>주차</span>
-        </div>
-        <button onclick="createVote()" class="btn btn-success">투표 생성</button>
-      </div>
-      <div id="voteLink" class="vote-link"></div>
-    </section>
-
-    <!-- 투표 목록 섹션 -->
+    <!-- 투표 목록 섹션 (최상단) -->
     <section class="card">
       <h2>📊 투표 목록</h2>
       <div id="votesList" class="votes-list"></div>
     </section>
+
+    <!-- 탭 구조 -->
+    <section class="card">
+      <div class="tabs">
+        <button class="tab-button active" onclick="switchTab('create')">신규 작성</button>
+      </div>
+
+      <div id="createTab" class="tab-content active">
+        <!-- 투표 생성 -->
+        <div class="tab-section">
+          <h3>🗳️ 새 투표 만들기</h3>
+          <div class="form-group">
+            <div class="input-row">
+              <input
+                type="number"
+                id="monthInput"
+                placeholder="월"
+                min="1"
+                max="12"
+                class="input-field input-small"
+              >
+              <span>월</span>
+              <input
+                type="number"
+                id="weekInput"
+                placeholder="주차"
+                min="1"
+                max="5"
+                class="input-field input-small"
+              >
+              <span>주차</span>
+            </div>
+            <button onclick="createVote()" class="btn btn-success">투표 생성</button>
+          </div>
+          <div id="voteLink" class="vote-link"></div>
+        </div>
+
+        <!-- 멤버 관리 -->
+        <div class="tab-section">
+          <h3>👥 멤버 관리</h3>
+          <div class="form-group">
+            <input
+              type="text"
+              id="memberInput"
+              placeholder="팀이름/닉네임 (예: BIP팀/아무개)"
+              class="input-field"
+            >
+            <button onclick="addMember()" class="btn btn-primary">멤버 추가</button>
+          </div>
+          <div id="membersList" class="members-list"></div>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <script src="/js/admin.js?v=2.0"></script>
+  <script src="/js/admin.js?v=3.0"></script>
 </body>
 </html>

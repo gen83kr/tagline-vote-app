@@ -172,19 +172,7 @@ function displayResults(voteData) {
     `;
   }).join('');
 
-  // 투표 참여자 목록
-  const votersList = document.getElementById('votersList');
-  votersList.innerHTML = voteData.voters.map(voter => `
-    <div class="voter-item">
-      <span class="voter-name">${voter.name}</span>
-      <span class="voter-selections">
-        → ${voter.selectedMembers.join(', ')}
-      </span>
-      <span class="voter-time">
-        ${new Date(voter.votedAt).toLocaleString('ko-KR')}
-      </span>
-    </div>
-  `).join('');
+  // 무기명 투표 - 참여자 세부 정보는 표시하지 않음
 }
 
 // 에러 메시지 표시
