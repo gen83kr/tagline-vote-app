@@ -1,0 +1,18 @@
+{
+  "name": "tagline-vote-app",
+  "version": "1.0.0",
+  "description": "주간 태그라인 선정 투표 시스템",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "qrcode": "^1.5.4",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

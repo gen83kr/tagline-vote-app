@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 페이지 - 태그라인 투표</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 태그라인 투표 관리자</h1>
+      <nav>
+        <a href="/admin.html" class="active">관리자</a>
+        <a href="/archive.html">아카이브</a>
+      </nav>
+    </header>
+
+    <!-- 멤버 관리 섹션 -->
+    <section class="card">
+      <h2>👥 멤버 관리</h2>
+      <div class="form-group">
+        <input
+          type="text"
+          id="memberInput"
+          placeholder="팀이름/닉네임 (예: 마케팅팀/김철수)"
+          class="input-field"
+        >
+        <button onclick="addMember()" class="btn btn-primary">멤버 추가</button>
+      </div>
+      <div id="membersList" class="members-list"></div>
+    </section>
+
+    <!-- 투표 생성 섹션 -->
+    <section class="card">
+      <h2>🗳️ 새 투표 만들기</h2>
+      <div class="form-group">
+        <div class="input-row">
+          <input
+            type="number"
+            id="monthInput"
+            placeholder="월"
+            min="1"
+            max="12"
+            class="input-field input-small"
+          >
+          <span>월</span>
+          <input
+            type="number"
+            id="weekInput"
+            placeholder="주차"
+            min="1"
+            max="5"
+            class="input-field input-small"
+          >
+          <span>주차</span>
+        </div>
+        <button onclick="createVote()" class="btn btn-success">투표 생성</button>
+      </div>
+      <div id="voteLink" class="vote-link"></div>
+    </section>
+
+    <!-- 투표 목록 섹션 -->
+    <section class="card">
+      <h2>📊 투표 목록</h2>
+      <div id="votesList" class="votes-list"></div>
+    </section>
+  </div>
+
+  <script src="/js/admin.js?v=2.0"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>태그라인 투표</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🗳️ 태그라인 투표</h1>
+    </header>
+
+    <div id="voteContent">
+      <!-- 로딩 중 -->
+      <div id="loading" class="loading">
+        <p>투표 정보를 불러오는 중...</p>
+      </div>
+
+      <!-- 투표 폼 -->
+      <div id="voteForm" style="display: none;">
+        <section class="card">
+          <h2 id="voteTitle"></h2>
+
+          <div class="form-group">
+            <label for="voterName">귀하의 이름 (팀이름/닉네임)</label>
+            <input
+              type="text"
+              id="voterName"
+              placeholder="예: 마케팅팀/김철수"
+              class="input-field"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="form-group">
+            <label>투표할 멤버 선택 (1~2명, 본인 제외)</label>
+            <div id="memberOptions" class="member-options"></div>
+          </div>
+
+          <div class="vote-info-box">
+            <p>📌 투표 규칙</p>
+            <ul>
+              <li>1인당 최대 2표까지 가능합니다</li>
+              <li>본인은 선택할 수 없습니다</li>
+              <li>투표는 1회만 가능합니다</li>
+            </ul>
+          </div>
+
+          <button onclick="submitVote()" class="btn btn-primary btn-large">투표하기</button>
+        </section>
+      </div>
+
+      <!-- 투표 완료 -->
+      <div id="voteComplete" style="display: none;">
+        <section class="card text-center">
+          <div class="success-icon">✅</div>
+          <h2>투표가 완료되었습니다!</h2>
+          <p>참여해주셔서 감사합니다.</p>
+          <p class="info-text">투표 결과는 투표 종료 후 확인하실 수 있습니다.</p>
+        </section>
+      </div>
+
+      <!-- 에러 -->
+      <div id="errorMessage" style="display: none;">
+        <section class="card text-center">
+          <div class="error-icon">❌</div>
+          <h2>오류가 발생했습니다</h2>
+          <p id="errorText"></p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/vote.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "15afddd8-a3e0-44c0-b64e-7a3229bf291f",
+    "title": "11월 1주차 태그라인 선정",
+    "month": "11",
+    "week": "1",
+    "members": [
+      {
+        "id": "8b5c7a08-f453-44b9-96c4-27193ccc480d",
+        "name": "BI사업실/션",
+        "createdAt": "2025-11-02T07:48:29.367Z",
+        "votes": 0
+      },
+      {
+        "id": "fb551674-88e9-447d-8a5f-aeb658bac013",
+        "name": "BIP팀/듀크",
+        "createdAt": "2025-11-02T07:48:41.864Z",
+        "votes": 0
+      },
+      {
+        "id": "2264ccbd-3029-4921-9676-7f10fdc04922",
+        "name": "BIP팀/쥬드",
+        "createdAt": "2025-11-02T07:48:48.000Z",
+        "votes": 0
+      },
+      {
+        "id": "515a6beb-1dc7-4d74-b164-91c78e187353",
+        "name": "BIP팀/알도",
+        "createdAt": "2025-11-02T07:48:53.969Z",
+        "votes": 0
+      },
+      {
+        "id": "e361da6d-6e79-4959-9281-eadaa739591d",
+        "name": "BIM팀/그웬",
+        "createdAt": "2025-11-02T07:49:52.821Z",
+        "votes": 0
+      },
+      {
+        "id": "6c763fa2-6095-4d9c-bb26-5c4fc60e9079",
+        "name": "BIM팀/라니",
+        "createdAt": "2025-11-02T07:49:57.926Z",
+        "votes": 0
+      },
+      {
+        "id": "6fe3af03-8347-49a5-9ff5-4c64f39f39d6",
+        "name": "BIM팀/안나",
+        "createdAt": "2025-11-02T07:50:04.915Z",
+        "votes": 0
+      },
+      {
+        "id": "d7f836c5-3602-43da-a260-95f310519ccf",
+        "name": "BIM팀/카엘",
+        "createdAt": "2025-11-02T07:50:09.737Z",
+        "votes": 0
+      },
+      {
+        "id": "ba0e0ce5-783c-48e7-a40d-b400fa5264e7",
+        "name": "QA팀/브레드",
+        "createdAt": "2025-11-02T07:50:38.349Z",
+        "votes": 0
+      },
+      {
+        "id": "20d83573-e398-4c46-ab65-98b6b4ddc150",
+        "name": "QA팀/앤",
+        "createdAt": "2025-11-02T07:50:46.162Z",
+        "votes": 0
+      },
+      {
+        "id": "17d7fe96-314a-477d-b4e4-d21f7d1ddb42",
+        "name": "QA팀/줄리안",
+        "createdAt": "2025-11-02T07:50:53.371Z",
+        "votes": 0
+      },
+      {
+        "id": "cb52add0-7fcf-4bab-b313-79b1a8c8c585",
+        "name": "QA팀/코너",
+        "createdAt": "2025-11-02T07:51:00.787Z",
+        "votes": 0
+      },
+      {
+        "id": "b55103b6-6813-403b-b952-3c81d3a1d777",
+        "name": "UXA팀/큐",
+        "createdAt": "2025-11-02T07:51:13.878Z",
+        "votes": 0
+      },
+      {
+        "id": "346a82cc-d9da-43bf-bd74-b11eb810536e",
+        "name": "마케팅팀/김철수",
+        "createdAt": "2025-11-02T08:17:41.463Z",
+        "votes": 0
+      },
+      {
+        "id": "fe3388b2-6f62-4f56-9d29-2620a01b904e",
+        "name": "개발팀/이영희",
+        "createdAt": "2025-11-02T08:17:46.902Z",
+        "votes": 0
+      },
+      {
+        "id": "a1148f66-2a9d-4a4c-b249-2eb402f16b39",
+        "name": "디자인팀/박민수",
+        "createdAt": "2025-11-02T08:17:46.910Z",
+        "votes": 0
+      }
+    ],
+    "voters": [],
+    "status": "open",
+    "createdAt": "2025-11-02T08:21:54.583Z",
+    "closedAt": null
+  }
+]

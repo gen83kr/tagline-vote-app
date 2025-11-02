@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>투표 결과</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📊 투표 결과</h1>
+      <nav>
+        <a href="/admin.html">관리자</a>
+        <a href="/archive.html">아카이브</a>
+      </nav>
+    </header>
+
+    <div id="resultsContent">
+      <!-- 로딩 중 -->
+      <div id="loading" class="loading">
+        <p>결과를 불러오는 중...</p>
+      </div>
+
+      <!-- 결과 표시 -->
+      <div id="resultsDisplay" style="display: none;">
+        <section class="card">
+          <h2 id="voteTitle"></h2>
+          <div class="vote-meta">
+            <p id="votePeriod"></p>
+            <p id="voterCount"></p>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>📊 득표 결과 차트</h3>
+          <div class="chart-container">
+            <canvas id="resultsChart"></canvas>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>🏆 순위별 득표 결과</h3>
+          <div id="resultsList" class="results-list"></div>
+        </section>
+
+        <section class="card">
+          <h3>👥 투표 참여자</h3>
+          <div id="votersList" class="voters-list"></div>
+        </section>
+      </div>
+
+      <!-- 에러 -->
+      <div id="errorMessage" style="display: none;">
+        <section class="card text-center">
+          <div class="error-icon">❌</div>
+          <h2>오류가 발생했습니다</h2>
+          <p id="errorText"></p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>투표 아카이브</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 투표 아카이브</h1>
+      <nav>
+        <a href="/admin.html">관리자</a>
+        <a href="/archive.html" class="active">아카이브</a>
+      </nav>
+    </header>
+
+    <section class="card">
+      <h2>지난 투표 결과</h2>
+      <div id="archivesList" class="archives-list">
+        <div class="loading">
+          <p>아카이브를 불러오는 중...</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/js/archive.js"></script>
+</body>
+</html>
