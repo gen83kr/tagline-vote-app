@@ -2,3 +2,8 @@ node_modules/
 .DS_Store
 *.log
 .env
+
+# Optional: Ignore data files but keep directory structure
+# Uncomment if you want to exclude production data
+# data/*.json
+# !data/.gitkeep

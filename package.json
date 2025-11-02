@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "echo 'No build step required'"
   },
   "dependencies": {
     "express": "^4.18.2",
@@ -13,6 +14,14 @@
     "uuid": "^9.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
-  }
+    "node": "18.x"
+  },
+  "keywords": [
+    "voting",
+    "qrcode",
+    "survey",
+    "poll"
+  ],
+  "author": "",
+  "license": "MIT"
 }
