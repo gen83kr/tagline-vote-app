@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 const QRCode = require('qrcode');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());

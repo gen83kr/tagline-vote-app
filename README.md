@@ -195,35 +195,104 @@ tagline-vote-app/
 
 **중요**: 이 프로젝트는 Node.js 백엔드 서버가 필요한 풀스택 애플리케이션입니다. GitHub Pages는 정적 사이트만 호스팅하므로, **로컬 환경에서 실행**하거나 Node.js를 지원하는 플랫폼에 배포해야 합니다.
 
-### 온라인 배포 옵션
+### Railway 배포 가이드 (추천 🚀)
 
-프로젝트를 온라인에 배포하려면 다음 플랫폼을 사용할 수 있습니다:
+Railway는 무료 티어로 Node.js 애플리케이션을 쉽게 배포할 수 있는 플랫폼입니다.
 
-1. **Heroku** (무료 티어 가능)
-   - Node.js 앱 배포에 최적화
-   - 자동 빌드 및 배포
+#### 1단계: Railway 계정 생성
+1. [Railway 웹사이트](https://railway.app/) 접속
+2. **"Login with GitHub"** 클릭하여 GitHub 계정으로 로그인
 
-2. **Railway** (무료 티어 가능)
-   - GitHub 연동으로 간편한 배포
-   - 환경 변수 관리 용이
+#### 2단계: GitHub 저장소 연결
+1. Railway 대시보드에서 **"New Project"** 클릭
+2. **"Deploy from GitHub repo"** 선택
+3. GitHub 저장소 권한 승인 (처음 한 번만)
+4. `tagline-vote-app` 저장소 선택
+5. Railway가 자동으로 프로젝트를 감지하고 빌드 시작
 
-3. **Vercel** (무료 티어 가능)
-   - Next.js 및 Node.js 지원
-   - GitHub 자동 배포
+#### 3단계: 배포 확인
+1. 빌드가 완료되면 **"Deployments"** 탭에서 상태 확인
+2. **"Settings"** 탭 → **"Generate Domain"** 클릭
+3. 생성된 공개 URL 복사 (예: `tagline-vote-app-production.up.railway.app`)
 
-4. **Render** (무료 티어 가능)
-   - Node.js 웹 서비스 호스팅
-   - 자동 SSL 인증서
+#### 4단계: 애플리케이션 접속
+생성된 도메인 뒤에 `/admin.html`을 붙여 접속:
+```
+https://your-app.up.railway.app/admin.html
+```
 
-### 로컬 실행 (권장)
+#### 환경 변수 (선택사항)
+Railway는 `PORT` 환경 변수를 자동으로 설정합니다. 추가 환경 변수가 필요한 경우:
+1. Railway 대시보드에서 프로젝트 선택
+2. **"Variables"** 탭 클릭
+3. 환경 변수 추가
+
+#### 데이터 영속성 주의사항 ⚠️
+**중요**: Railway의 기본 파일 시스템은 임시(ephemeral)입니다. 즉, 서버 재시작 시 `data/` 폴더의 내용이 사라집니다.
+
+**해결 방법**:
+1. **Railway Volume 사용** (권장)
+   - Railway 대시보드 → **"Volumes"** 탭
+   - 새 Volume 생성 후 `/app/data` 경로에 마운트
+
+2. **외부 데이터베이스 사용**
+   - MongoDB Atlas (무료 티어)
+   - PostgreSQL (Railway에서 제공)
+   - Supabase (무료 티어)
+
+3. **테스트/데모 용도로만 사용**
+   - 데이터가 중요하지 않은 경우 그대로 사용 가능
+
+#### 자동 배포
+GitHub 저장소에 새로운 커밋을 푸시하면 Railway가 자동으로 재배포합니다!
+
+```bash
+git add .
+git commit -m "Update feature"
+git push origin main
+# Railway가 자동으로 감지하고 재배포
+```
+
+---
+
+### 다른 배포 옵션
+
+#### Render
+1. [Render 웹사이트](https://render.com/) 접속
+2. **"New +"** → **"Web Service"** 선택
+3. GitHub 저장소 연결
+4. Build Command: `npm install`
+5. Start Command: `npm start`
+
+#### Vercel
+1. [Vercel 웹사이트](https://vercel.com/) 접속
+2. **"Import Project"** 선택
+3. GitHub 저장소 연동
+
+#### Heroku
+1. [Heroku 웹사이트](https://www.heroku.com/) 접속
+2. 새 앱 생성 후 GitHub 연동
+
+---
+
+### 로컬 실행 (개발/테스트)
 가장 간단한 방법은 로컬에서 실행하는 것입니다:
 
 ```bash
+# 저장소 클론
+git clone https://github.com/YOUR_USERNAME/tagline-vote-app.git
+cd tagline-vote-app
+
+# 의존성 설치
 npm install
+
+# 서버 실행
 npm start
 ```
 
-그 다음 브라우저에서 `http://localhost:3000/admin.html`로 접속하세요.
+브라우저에서 접속:
+- 관리자 페이지: http://localhost:3000/admin.html
+- 아카이브: http://localhost:3000/archive.html
 
 ## 라이선스
 
